@@ -1,5 +1,6 @@
 public class NumberOfDigit {
 
+    // iterative solution
     public static int countDigit(int num) {
         int count = 0;
         while (num != 0) {
@@ -9,8 +10,22 @@ public class NumberOfDigit {
         return count;
     }
 
+    // recursive solution
+    public static int cDigit(int num) {
+        if (num == 0) {
+            return 0;
+        }
+        return 1 + cDigit(num / 10);
+    }
+
+    // logarithmin solution
+    public static long digit(long n) {
+        return floor(log10(n) + 1);
+    }
+
     public static void main(String[] args) {
         System.out.println(countDigit(123));
-
+        System.out.println(cDigit(123));
+        System.out.println(digit(134));
     }
 }
