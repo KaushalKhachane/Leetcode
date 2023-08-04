@@ -1,3 +1,5 @@
+import static java.lang.Math.*;
+
 public class NumberOfDigit {
 
     // iterative solution
@@ -20,7 +22,7 @@ public class NumberOfDigit {
 
     // logarithmin solution
     public static long digit(long n) {
-        return floor(log10(n) + 1);
+        return (long) floor(log10(n) + 1);
     }
 
     public static void main(String[] args) {
