@@ -1,5 +1,6 @@
 public class TralingZeros {
 
+    // time complexity theta(n)
     public static int tralingZeros(int num) {
         int fact = 1;
 
@@ -19,7 +20,19 @@ public class TralingZeros {
         return count;
     }
 
+    // time complexity O(logn)
+    // here we calculate the number of 5 present in the factorial
+    // if 25 then number of 5 is 2 and for 125 it is 3
+    public static int countTralingZeros(int n) {
+        int res = 0;
+        for (int i = 5; i <= n; i = i * 5) {
+            res = res + n / i;
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         System.out.println(tralingZeros(5));
+        System.out.println(countTralingZeros(251));
     }
 }
