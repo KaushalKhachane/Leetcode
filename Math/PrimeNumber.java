@@ -6,7 +6,7 @@ public class PrimeNumber {
             return false;
         }
         for (int i = 2; i < num; i++) {
-            if (num % 2 == 0) {
+            if (num % i == 0) {
                 return false;
             }
         }
@@ -19,7 +19,7 @@ public class PrimeNumber {
             return false;
         }
         for (int i = 2; i * i < n; i++) {
-            if (n % 2 == 0) {
+            if (n % i == 0) {
                 return false;
             }
         }
@@ -50,6 +50,7 @@ public class PrimeNumber {
         System.out.println(isPrimeNum(14));
         System.out.println(isPrimeNumber(13));
         System.out.println(isPrimeNumber(22));
+        System.out.println(isPrime(2));
 
     }
 }
