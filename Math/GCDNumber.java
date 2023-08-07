@@ -1,3 +1,4 @@
+// Greatest Common Divisors
 public class GCDNumber {
 
     // time complexity o(min(a,b))
@@ -25,7 +26,7 @@ public class GCDNumber {
     }
 
     // optimized version of euclidean algorithum
-    // time complexity 
+    // time complexity
     public static int gdc1(int a, int b) {
         if (b == 0) {
             return a;
