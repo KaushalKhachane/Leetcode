@@ -15,6 +15,8 @@ public class Sieve {
             if (prime[i]) {
                 // mark all the multiple of the prime no. to false like non prime number became
                 // false now
+
+                // we can use j = i * i insted of j = i * `2
                 for (int j = 2 * i; j <= num; j = j + i) {
                     prime[j] = false;
                 }
