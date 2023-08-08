@@ -32,8 +32,24 @@ public class Sieve {
         System.out.println("count: " + count);
     }
 
+    // o(log log n)
+    public static void sievePrint(int num) {
+        boolean[] isPrime = new boolean[num + 1];
+        Arrays.fill(isPrime, true);
+        for (int i = 2; i <= num; i++) {
+            if (isPrime[i]) {
+                System.out.println(i);
+                for (int j = i * i; j <= num; j = j + i) {
+                    isPrime[j] = false;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         printPrimes(10);
+        System.out.println("---------------");
+        sievePrint(10);
 
     }
 }
