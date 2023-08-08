@@ -11,9 +11,10 @@ public class Sieve {
         Arrays.fill(prime, true);
 
         for (int i = 2; i * i <= num; i++) {
-            //check if the number 
+            // check if the number
             if (prime[i]) {
-                // mark all the multiple of the prime no. to false like non prime number became false nowS
+                // mark all the multiple of the prime no. to false like non prime number became
+                // false now
                 for (int j = 2 * i; j <= num; j = j + i) {
                     prime[j] = false;
                 }
