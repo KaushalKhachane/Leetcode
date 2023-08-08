@@ -3,18 +3,25 @@ class Solution {
         int tSum = 0;
         int lSum = 0;
 
-        for(int i = 0; i < nums.length; i++){
+        // here we calculating tSum of the array first
+        for (int i = 0; i < nums.length; i++) {
             tSum = tSum + nums[i];
         }
 
-        for(int i = 0; i < nums.length; i++){
-
+        // here we are checking whether leftsum is equal to total sum if so then we
+        // return index
+        // we minus the array element one by one from the nums array and also add the
+        // element to the leftsum variable one by one and if in between tSum and lSum
+        // found to be equal then return index at that postion and this is the pivot
+        // index
+        for (int i = 0; i < nums.length; i++) {
             tSum -= nums[i];
-            if(tSum == lSum){
+            if (tSum == lSum) {
                 return i;
             }
-            lSum += nums[i];
+            lSum = lSum + nums[i];
         }
+
         return -1;
     }
 }
