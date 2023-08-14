@@ -1,6 +1,17 @@
 import java.util.Scanner;
 
 public class MaxSubarray {
+
+    public static int maximunSum(int[] arr) {
+        int maxEnding = arr[0];
+        int res = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            maxEnding = Math.max(maxEnding, maxEnding + arr[i]);
+            res = Math.max(maxEnding, arr[i]);
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number of elements in array: ");
@@ -27,6 +38,8 @@ public class MaxSubarray {
             }
         }
         System.out.println("Maximun Sum of Subarray: " + maxSum);
+
+        System.out.println(maximunSum(arr));
         sc.close();
     }
 }
