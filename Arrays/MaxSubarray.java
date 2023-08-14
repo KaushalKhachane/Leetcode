@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class MaxSubarray {
 
-    public static int maximunSum(int[] arr) {
+    public static int maximumSum(int[] arr) {
         int maxEnding = arr[0];
         int res = arr[0];
         for (int i = 1; i < arr.length; i++) {
@@ -39,7 +39,7 @@ public class MaxSubarray {
         }
         System.out.println("Maximun Sum of Subarray: " + maxSum);
 
-        System.out.println(maximunSum(arr));
+        System.out.println(maximumSum(arr));
         sc.close();
     }
 }
