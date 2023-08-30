@@ -7,4 +7,4 @@ class Solution {
         if(angle > 180) angle = 360 - angle;
         return angle;
     }
-}
+}       
