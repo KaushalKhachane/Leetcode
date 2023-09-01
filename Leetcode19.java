@@ -27,7 +27,7 @@ class Solution {
 
         slow.next = slow.next.next;
 
-        return start.next;
-
+        start =  start.next;
+        return start;
     }
 }
