@@ -10,36 +10,42 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        ListNode slow = head;
+
+        if(head == null || head.next == null) return true;
+
+        ListNode slow =  head;
         ListNode fast = head;
 
-        while(fast != null && fast.next != null){
+        while(fast.next != null && fast.next.next != null){
             slow = slow.next;
             fast = fast.next.next;
         }
 
-        slow = reverseRec(slow);
-        fast = head;
+        // reverse right half of ll
+        slow.next = revsreList(slow.next);
+        slow = slow.next;
 
         while(slow != null){
-            if(slow.val != fast.val){
-                return false;
-            }
+            if(head.val != slow.val) return false;
+            head = head.next;
             slow = slow.next;
-            fast = fast.next;
         }
+
         return true;
     }
+        //for reverse the right of middle of the ll
+        ListNode revsreList(ListNode head){
+            ListNode current = head;
+            ListNode prev = null;
+            ListNode next;
 
-    public ListNode reverseRec(ListNode head){
-        if(head == null || head.next == null){
-            return head;
+            while(current != null){
+                next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+            return prev;
         }
 
-        ListNode newHead = reverseRec(head.next);
-        head.next.next = head;
-        head.next = null;
-
-        return newHead;
-    }
 }
