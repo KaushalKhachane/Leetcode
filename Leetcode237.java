@@ -1,15 +1,20 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
 class Solution {
-    public int findDuplicate(int[] nums) {
-        int ans = 0;
-        Arrays.sort(nums);
-
-        for (int i = 0; i + 1 < nums.length; i++) {
-            if (nums[i] == nums[i + 1]) {
-                ans = nums[i];
-                break;
-            }
+    public void deleteNode(ListNode node) {
+        if(node == null) return;
+        // if the node is the last node to delete then simply make that node null
+        if(node.next ==  null) {
+            node = null;
         }
-
-        return ans;
+        simply traverse (not traverse actually) right of given node
+        node.val = node.next.val;
+        node.next = node.next.next;
     }
 }
