@@ -11,23 +11,23 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
+
+        // if ll is empty or single node ll then no cycle exists then return false
         if(head == null || head.next == null){
             return false;
-        }
-
+        }        
         ListNode slow = head;
-        ListNode fast = head.next;
+        ListNode fast = head;
 
-        while(slow != fast){
-            if(fast == null || fast.next == null){
-                return false;
-            }
-            
+        // if cycle then for sure slow and fast meet at some node
+        while(fast.next != null && fast.next.next != null){
+            fast =  fast.next.next;
             slow = slow.next;
-            fast = fast.next.next;
+            if(fast == slow){
+                return true;
+            }
         }
 
-        return true;
-        
+        return false;
     }
 }
