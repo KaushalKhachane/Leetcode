@@ -1,30 +1,32 @@
 class Solution {
     public int maxSubArray(int[] nums) {
+        int maxi =  Integer.MIN_VALUE   ;
+        int sum = 0;
 
-        if (nums.length == 0) {
-            return 0;
-        }
-        if (nums.length == 1) {
-            return nums[0];
-        }
-        int maxSum = nums[0];
-        int currentSum = 0;
+        // below's three variable for printing the max-sumarray which give max value
+        int ansStart = -1;
+        int ansEnd = -1;
+        int start = 0;
 
-        for (int i = 0; i < nums.length; i++) {
-            currentSum += nums[i];
-
-            // if the current sum is max like after adding positive value to last current
-            // sum then this block executed and if current sem less like adding negative
-            // value to last current sum this loop won't executed
-            if (currentSum > maxSum) {
-                maxSum = currentSum;
+        for(int i = 0; i < nums.length; i++){
+            // if ssum = 0 then start sub-array from it's next item
+            if(sum == 0) start = i;
+            sum = sum + nums[i];
+         
+            if(sum > maxi){
+                maxi = sum;
+                ansStart = start;
+                ansEnd = i;
             }
-            if (currentSum < 0) {
-                currentSum = 0;
-            }
-
-            maxSum = Math.max(maxSum, currentSum);
+            if(sum < 0){
+                sum = 0;
+            }   
         }
-        return maxSum;
+       
+       for(int j = ansStart; j <= ansEnd; j++){
+           System.out.print(" "+nums[j]);
+       }
+
+        return maxi;
     }
 }
