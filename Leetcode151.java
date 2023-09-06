@@ -23,4 +23,42 @@ class Solution {
         }
         return result;
     }
+
+    // if (s == null || s.length() == 0) {
+    //         return s;
+    //     }
+        
+    //     char[] charArray = s.toCharArray();
+    //     int n = charArray.length;
+        
+    //     int start = 0;
+    //     int end = 0;
+        
+    //     while (start < n) {
+    //         while (start < n && charArray[start] == ' ') {
+    //             start++;
+    //         }
+            
+    //         end = start;
+    //         while (end < n && charArray[end] != ' ') {
+    //             end++;
+    //         }
+            
+    //         reverseString(charArray, start, end - 1);
+            
+    //         start = end;
+    //     }
+        
+    //     return new String(charArray);
+    // }
+    
+    // private void reverseString(char[] s, int left, int right) {
+    //     while (left < right) {
+    //         char temp = s[left];
+    //         s[left] = s[right];
+    //         s[right] = temp;
+    //         left++;
+    //         right--;
+    //     }
+    // }
 }
