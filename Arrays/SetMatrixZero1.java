@@ -1,6 +1,12 @@
 
 import java.util.*;
 
+// Time Complexity: O(2*(N*M)), where N = no. of rows in the matrix and M = no. of columns in the matrix.
+// Reason: We are traversing the entire matrix 2 times and each traversal is taking O(N*M) time complexity.
+
+// Space Complexity: O(N) + O(M), where N = no. of rows in the matrix and M = no. of columns in the matrix.
+// Reason: O(N) is for using the row array and O(M) is for using the col array.
+
 public class SetMatrixZero1 {
     static void markRow(ArrayList<ArrayList<Integer>> matrix, int n, int m, int i) {
         // set all non-zero elements as -1 in the row i:
