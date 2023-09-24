@@ -7,7 +7,7 @@ public class PalindromeString2 {
             if(str.charAt(begin) != str.charAt(end)){
                 return false;
             }
-            begin++;
+            begin++; 
             end--;
         }
         return true;
