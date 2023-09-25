@@ -1,5 +1,5 @@
-class Solution {
-    public String longestPalindrome(String s) {
+class Leetcode5 {
+    public static String longestPalindrome(String s) {
         int n = s.length();
         int dp[][] = new int[n][n];
 
@@ -27,5 +27,8 @@ class Solution {
             }
         }
         return ans;
+    }
+    public static void main(String[] args) {
+        System.out.println(longestPalindrome("aba"));
     }
 }
