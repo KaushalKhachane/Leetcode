@@ -1,50 +1,31 @@
 class Solution {
     public String longestPalindrome(String s) {
-        if(s.length() <= 1){
-            return s;
-        }
-
-        int max_length = 1;
-        int start = 0, end = 0;
         int n = s.length();
-        //odd length
-        for(int i = 0; i < n-1; ++i){
-            int l = i; int r = i;
-            while(l >=0 && r < n){
-                if(s.charAt(l) == s.charAt(r)){
-                    l--;
-                    r++;
+        int dp[][] = new int[n][n];
+
+        String ans = "";
+        int maxLength = 0;
+
+        for(int diff = 0; diff < n; diff++){
+            for(int i = 0,  j = i + diff; j < n; i++, j++){
+                if(i == j){
+                    dp[i][j] = 1;
+                }else if(diff == 1){
+                   dp[i][j] = (s.charAt(i)==s.charAt(j)) ? 2 : 0;
                 }else{
-                    break;
+                    if(s.charAt(i) == s.charAt(j) && dp[i+1][j-1] > 0){
+                        dp[i][j] =  dp[i+1][j-1]+2;
+                    }
+                }
+
+                if(dp[i][j] > 0){
+                    if(j-i+1 > maxLength){
+                        maxLength = j-i+1;
+                        ans = s.substring(i, j + 1);
+                    }
                 }
             }
-            int len = (r-l)-1;
-            if(len > max_length){
-                max_length = len;
-                start = l+1;
-                end = r-1;
-            }
         }
-
-        // even length
-        for(int i = 0; i < n-1; ++i){
-            int l = i; int r = i+1;
-            while(l >=0 && r < n){
-                if(s.charAt(l) == s.charAt(r)){
-                    l--;
-                    r++;
-                }else{
-                    break;
-                }
-            }
-            int len = (r-l)-1;
-            if(len > max_length){
-                max_length = len;
-                start = l+1;
-                end = r-1;
-            }
-        }
-
-        return s.substring(start, end+1);
+        return ans;
     }
 }
