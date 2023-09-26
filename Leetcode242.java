@@ -1,11 +1,26 @@
-class Solution {
+class Leetcode242 {
+    final int CHAR = 256;
     public boolean isAnagram(String s, String t) {
-        char[] sArray = s.toCharArray();
-        char[] tArray = t.toCharArray();
+       if(s.length() != t.length()){
+           return false;
+       }
+       int count[] = new int[CHAR];
+       for(int i = 0; i < s.length(); i++){
+           count[s.charAt(i)]++;
+           count[t.charAt(i)]--;
+       }
 
-        Arrays.sort(sArray);
-        Arrays.sort(tArray);
+       for(int i = 0; i < CHAR; i++){
+           if(count[i] != 0){
+               return false;
+           }
+       }
 
-        return Arrays.equals(sArray, tArray);
+       return true;
+    }
+    public static void main(String[] args) {
+        Leetcode242 obj = new Leetcode242();
+
+        System.out.println(obj.isAnagram("kau","uak"));
     }
 }
