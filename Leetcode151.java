@@ -1,5 +1,40 @@
 class Solution {
-    public String reverseWords(String s) {
+
+    // public void reverse(char[] chars, int start, int end) {
+    //     while (start < end) {
+    //         char temp = chars[start];
+    //         chars[start] = chars[end];
+    //         chars[end] = temp;
+    //         start++;
+    //         end--;
+    //     }
+    // }
+
+     public String reverseWords(String s) {
+    //     char chars[] = s.toCharArray();
+    //     int n = s.length();
+
+    //     reverse(chars, 0, n - 1); // reverse the entire string
+
+    //     int start = 0;
+    //     int end = 0;
+
+    //     while (end < n) {
+
+    //         while (end < n && chars[end] != ' ') {
+    //             end++;
+    //         }
+
+    //         reverse(chars, start, end - 1);
+
+    //         while (end < n && chars[end] == ' ') {
+    //             end++;
+    //         }
+
+    //         start = end;
+    //     }
+    //     return new String(chars);
+
         String result = new String();
         int n = s.length();
         int i = 0;
@@ -8,57 +43,20 @@ class Solution {
             while(i < n && s.charAt(i) == ' '){
                 i++;
             }
+
             if(i >= n) break;
             int j = i + 1;
-            while(j < n &&  s.charAt(j) != ' '){
+            while(j < n && s.charAt(j) != ' '){
                 j++;
             }
-            String sub = s.substring(i,j);
+            String w = s.substring(i, j);
             if(result.length() == 0){
-                result = sub;
+                result = w;
             }else{
-                result = sub + " " + result;
+                result = w + " " + result;
             }
-            i = j + 1;
+            i = j +1;
         }
         return result;
     }
-
-    // if (s == null || s.length() == 0) {
-    //         return s;
-    //     }
-        
-    //     char[] charArray = s.toCharArray();
-    //     int n = charArray.length;
-        
-    //     int start = 0;
-    //     int end = 0;
-        
-    //     while (start < n) {
-    //         while (start < n && charArray[start] == ' ') {
-    //             start++;
-    //         }
-            
-    //         end = start;
-    //         while (end < n && charArray[end] != ' ') {
-    //             end++;
-    //         }
-            
-    //         reverseString(charArray, start, end - 1);
-            
-    //         start = end;
-    //     }
-        
-    //     return new String(charArray);
-    // }
-    
-    // private void reverseString(char[] s, int left, int right) {
-    //     while (left < right) {
-    //         char temp = s[left];
-    //         s[left] = s[right];
-    //         s[right] = temp;
-    //         left++;
-    //         right--;
-    //     }
-    // }
 }
