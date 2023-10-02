@@ -1,29 +1,34 @@
-class Solution {
-    public boolean isIsomorphic(String s1, String s2) {
-      if (s1.length() != s2.length()) {
-        return false;
-    }
+import java.util.HashMap;
+import java.util.Map;
 
-    Map<Character, Character> map1 = new HashMap<>();
-    Map<Character, Character> map2 = new HashMap<>();
-
-    for (int i = 0; i < s1.length(); i++) {
-        char c1 = s1.charAt(i);
-        char c2 = s2.charAt(i);
-
-        if (map1.containsKey(c1) && map2.containsKey(c2)) {
-            if (map1.get(c1) != c2 || map2.get(c2) != c1) {
-                return false;
-            }
-        } else if (!map1.containsKey(c1) && !map2.containsKey(c2)) {
-            map1.put(c1, c2);
-            map2.put(c2, c1);
-        } else {
+public class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if (s.length() != t.length()) {
             return false;
         }
-    }
 
-    return true;  
+        Map<Character, Character> sToT = new HashMap<>();
+        Map<Character, Character> tToS = new HashMap<>();
 
+        for (int i = 0; i < s.length(); i++) {
+            char sChar = s.charAt(i);
+            char tChar = t.charAt(i);
+
+            // Check if sChar is already mapped to a different character in t
+            if (sToT.containsKey(sChar) && sToT.get(sChar) != tChar) {
+                return false;
+            }
+
+            // Check if tChar is already mapped to a different character in s
+            if (tToS.containsKey(tChar) && tToS.get(tChar) != sChar) {
+                return false;
+            }
+
+            // Create the mappings
+            sToT.put(sChar, tChar);
+            tToS.put(tChar, sChar);
+        }
+
+        return true;
     }
 }
