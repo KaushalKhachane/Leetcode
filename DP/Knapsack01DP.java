@@ -24,9 +24,9 @@ public class Knapsack01DP {
         return dp[n][W];
     }
     public static void main(String[] args) {
-        int profit[] = new int[] { 60, 100, 120 };
-        int weight[] = new int[] { 10, 20, 30 };
-        int W = 50;
+        int profit[] = new int[] { 2,3,5,7 };
+        int weight[] = new int[] { 2,3,4,5 };
+        int W = 7;
         int n = profit.length;
         System.out.println(knapSack(W, weight, profit, n));        
     }
