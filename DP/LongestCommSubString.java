@@ -13,7 +13,7 @@ public class LongestCommSubString {
         }
 
         // first row as zero
-        for(int j = 0; j <= n; j++){
+        for(int j = 0; j <= n; j++){ 
             dp[0][j] = 0;
         }
 
