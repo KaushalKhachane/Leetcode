@@ -9,9 +9,9 @@ public class KStack {
         int n, k;
         int free;
 
-        kStack(int k1, int n1) {
-            k = k1;
-            n = n1;
+        kStack(int noofstack, int totalsize) {
+            k = noofstack;
+            n = totalsize;
 
             arr = new int[n];
             top = new int[k];
