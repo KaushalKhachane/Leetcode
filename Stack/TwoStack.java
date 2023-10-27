@@ -13,7 +13,7 @@ public class TwoStack {
 		top2 = size; 
 	}   
 
-	void push1(int x) 
+	void push1(int x) 	
 	{  
 		if (top1 < top2 - 1) { 
 			top1++; 
