@@ -8,7 +8,7 @@ public class GenerateNoWithGivenNumber{
         q.offer("6");
         for(int i = 0; i < n; i++){
             String cuString = q.poll();
-            System.out.print(cuString+" ");
+            System.out.println(cuString+" ");
             q.offer(cuString + "5");
             q.offer(cuString + "6");
         }
