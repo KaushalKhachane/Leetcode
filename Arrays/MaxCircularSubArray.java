@@ -31,15 +31,18 @@ public class MaxCircularSubArray {
         int arr[] = { 4, -4, 6, -6, 10, -11, 12 };
 
         int nonWrapSum = Kadans(arr, arr.length);
+        System.out.println("non wrap sum:"+nonWrapSum);
 
         int totalSum = 0;
         for (int i = 0; i < arr.length; i++) {
             totalSum += arr[i];
             arr[i] = -arr[i];
         }
+        System.out.println("Total sum: " + totalSum);
 
         int wrapSum = totalSum + Kadans(arr, arr.length);
-
+        System.out.println("reverse kadans: "+Kadans(arr, arr.length));
+        System.out.println("wrap sum:"+wrapSum);
         System.out.println(Math.max(nonWrapSum, wrapSum));
     }
 }
