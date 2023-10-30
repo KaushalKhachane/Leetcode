@@ -25,6 +25,7 @@ public class KStack {
                 next[i] = i + 1;
             }
             next[n - 1] = -1;
+
         }
 
         boolean isEmpty(int sn) {
@@ -65,9 +66,9 @@ public class KStack {
 
     public static void main(String[] args) {
         int k = 3, n = 10;
-
+        
         kStack ks = new kStack(k, n);
-
+        
         ks.push(15, 2);
         ks.push(45, 2);
 
