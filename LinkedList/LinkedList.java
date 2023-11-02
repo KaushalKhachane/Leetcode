@@ -133,6 +133,39 @@ public class LinkedList {
         }
     }
 
+    public int helper(Node head, int key){
+        if(head == null){
+            return -1;
+        }
+        if(head.data == key){
+            return 0;
+        }
+        
+        int index = helper(head.next, key);
+        if(index == -1){
+            return -1;
+        }
+        return index+1;
+    }
+
+    public int recursiveSearch(int key){
+        return helper(head, key);
+    }
+
+    public void reverseList(){
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+        
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         list.addFirst(10);
@@ -149,8 +182,15 @@ public class LinkedList {
         // System.out.println("Removed Last Element: " + list.removeLast());
         // System.out.println("Removed Last Element: " + list.removeLast());
         list.printList();
-        System.out.println("Search Done element found at index(0 based indexing): "+list.searchLL(15));
+        System.out.println("Search Done element found at index(0 based indexing): "+list.recursiveSearch(15));
+        if(list.recursiveSearch(35) == -1){
+            System.out.println("KEY NOT FOUND!!! ");
+        }
         System.out.println("Size: " + list.sizeLL());
+
+        System.out.println("Reverse List: ");
+        list.reverseList();
+        list.printList();
     }
 
 }
