@@ -174,12 +174,12 @@ public class LinkedList {
             s++;
             temp = temp.next;
         }
-        if(s == 0){
-            System.out.println("LL is empty can't remove "+n+"th element from LL");
+        if (s == 0) {
+            System.out.println("LL is empty can't remove " + n + "th element from LL");
             return;
         }
-        if(size == 1){
-            head = tail= null;
+        if (size == 1) {
+            head = tail = null;
             return;
         }
         // delete the first node
@@ -201,14 +201,60 @@ public class LinkedList {
 
     }
 
+    public Node findMid(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public boolean isPalindrome() {
+        if (head == null || head.next ==  null) {
+            return true;
+        }
+
+        // find mid
+        Node midNode = findMid(head);
+
+        // reverse right half
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node left = head;
+        Node right = prev;
+
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.addFirst(10);
-
+        list.addLast(10);
         list.addLast(20);
-        list.addInMiddle(1, 15);
+        list.addLast(20);
+        list.addLast(10);
 
-        list.printList();
+        // list.addInMiddle(1, 15);
+
+        // list.printList();
         // System.out.println("Removed Element: " + list.removeFirst());
         // System.out.println("Removed Element: " + list.removeFirst());
         // System.out.println("Removed Element: " + list.removeFirst());
@@ -226,12 +272,14 @@ public class LinkedList {
 
         // System.out.println("Reverse List: ");
         // list.reverseList();
-        list.removeNthLastNode(2);
-        list.removeNthLastNode(1);
-        list.printList();
-        list.removeNthLastNode(3);
-        list.removeNthLastNode(2);
-        list.printList();
+        // list.removeNthLastNode(2);
+        // list.removeNthLastNode(1);
+        // list.printList();
+        // list.removeNthLastNode(3);
+        // list.removeNthLastNode(2);
+        // list.printList();
+
+        System.out.println(list.isPalindrome());
     }
 
 }
