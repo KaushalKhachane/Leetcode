@@ -245,12 +245,58 @@ public class LinkedList {
         return true;
     }
 
+    public boolean isCycle(){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void removeCycle(){
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                cycle = true;
+                break;
+            }
+        }
+        if(cycle == false){return;}
+
+        // find meeting point
+        slow = head;
+        Node prev = null;
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;            
+            fast = fast.next;
+        }
+        prev.next = null;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.addLast(10);
-        list.addLast(20);
-        list.addLast(20);
-        list.addLast(10);
+        head = new Node(10);
+        Node temp = new Node(40);
+        head.next = temp;
+        head.next.next = new Node(30);
+        head.next.next.next = temp;
+        // 10->40->
+        // list.addLast(10);
+        // list.addLast(20);
+        // list.addLast(20);
+        // list.addLast(10);
 
         // list.addInMiddle(1, 15);
 
@@ -262,7 +308,7 @@ public class LinkedList {
 
         // System.out.println("Removed Last Element: " + list.removeLast());
         // System.out.println("Removed Last Element: " + list.removeLast());
-        list.printList();
+        // list.printList();
         // System.out.println("Search Done element found at index(0 based indexing): " +
         // list.recursiveSearch(15));
         // if (list.recursiveSearch(35) == -1) {
@@ -279,7 +325,9 @@ public class LinkedList {
         // list.removeNthLastNode(2);
         // list.printList();
 
-        System.out.println(list.isPalindrome());
+        System.out.println(list.isCycle());
+        removeCycle();
+        System.out.println(list.isCycle());
     }
 
 }
