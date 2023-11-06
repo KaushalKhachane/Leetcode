@@ -14,9 +14,9 @@ public class SerachInRotatedSortedArray {
         }
 
         //line 1
-        if(arr[si] <= arr[mid]){
+        if(arr[si] <= mid){
             // case 1: left of mid
-            if(arr[si] <= target && target <= arr[mid]){
+            if(arr[si] <= target && target <= mid){
                 return search(arr, target, si, mid-1);
             }
             else{
@@ -27,7 +27,7 @@ public class SerachInRotatedSortedArray {
             // line 2
             if(arr[mid] <= target && target <= arr[ei]){
                 // case c: right
-                return search(arr, target, mid+1, ei);
+                return search(arr, target, mid+1, ei)''
             }else{
                 // case d : left
                 return search(arr, target, si, mid-1);
